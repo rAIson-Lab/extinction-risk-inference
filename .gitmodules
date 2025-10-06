@@ -1,0 +1,3 @@
+[submodule "CONFOLD"]
+	path = CONFOLD
+	url = git@github.com:lachlanmcg123/CONFOLD.git
