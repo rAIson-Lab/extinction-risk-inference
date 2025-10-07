@@ -12,7 +12,7 @@ from datasets import updated_extinction_birds # Our new function
 # Cargar y filtrar los datos para usar solo 0 y 1 en extinction_risk
 model_template, data = updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase.csv')
 label_index = model_template.attrs.index(model_template.label) if model_template.label in model_template.attrs else -1
-data = [row for row in data if str(row[label_index]) in ['0', '1']]
+data = [row for row in data if str(row[label_index]) in ['Lower_risk', 'Higher_risk']]
 
 # Split into training and testing sets
 train_data, test_data = split_data(data, ratio=0.9, shuffle=True)
@@ -24,7 +24,7 @@ print(f"Testing set size: {len(test_data)} updatedextinctionbirds")
 baseline_model = Classifier(attrs=model_template.attrs, numeric=model_template.numeric, label=model_template.label)
 
 # Fit the model on the training data
-baseline_model.fit(train_data, ratio=0.9)
+baseline_model.fit(train_data, ratio=0.5)
 
 # Print the rules the model learned
 print("--- Rules Learned by the Baseline Model ---")
@@ -56,12 +56,12 @@ expert_model = Classifier(attrs=model_template.attrs, numeric=model_template.num
 
 # Define our expert rules as strings
 # Note: the symbols '==' and '<=' must also be in single quotes for the parser.
-rule1 = "with confidence 0.90 class = '1' if 'Range.Size' '<=' '5' except if 'Clutch_Max' '=>' '10'"
+rule1 = "with confidence 0.90 class = 'Higher_risk' if 'Range.Size' '<=' '5' except if 'Clutch_Max' '=>' '10'"
 #Note additional rules could be added like this:
 #rule2 = "with confidence 0.70 class = '1' if 'Clutch_Max' '==' '1'"
 
 # Add the manual rules to the model
-expert_model.add_manual_rule(rule1, model_template.attrs, model_template.numeric, ['0', '1'], instructions=False)
+expert_model.add_manual_rule(rule1, model_template.attrs, model_template.numeric, ['Lower_risk', 'Higher_risk'], instructions=False)
 # Note: here is code to add an additional rule:
 #expert_model.add_manual_rule(rule2, model_template.attrs, model_template.numeric, ['0', '1'], instructions=False)
 
@@ -105,12 +105,12 @@ print(f"Accuracy: {expert_accuracy * 100:.2f}%")
 learned_confidence_model = Classifier(attrs=model_template.attrs, numeric=model_template.numeric, label=model_template.label)
 
 # Define our expert rules as strings, but WITHOUT the 'with confidence' part.
-rule1_no_confidence = "class = 'High_risk' if 'Range.Size' '<=' '5'"
-rule2_no_confidence = "class = 'High_risk' if 'Clutch_Max' '<=' '1'"
+rule1_no_confidence = "class = 'Higher_risk' if 'Range.Size' '<=' '5'"
+rule2_no_confidence = "class = 'Higher_risk' if 'Clutch_Max' '<=' '1'"
 
 # Add the manual rules to the model
-learned_confidence_model.add_manual_rule(rule1_no_confidence, model_template.attrs, model_template.numeric, ['Low_risk', 'High_risk'], instructions=False)
-learned_confidence_model.add_manual_rule(rule2_no_confidence, model_template.attrs, model_template.numeric, ['Low_risk', 'High_risk'], instructions=False)
+learned_confidence_model.add_manual_rule(rule1_no_confidence, model_template.attrs, model_template.numeric, ['Lower_risk', 'Higher_risk'], instructions=False)
+learned_confidence_model.add_manual_rule(rule2_no_confidence, model_template.attrs, model_template.numeric, ['Lower_risk', 'Higher_risk'], instructions=False)
 
 print("--- Manual Rules Added (Before Training) ---")
 print("Notice the default confidence value of 0.5 assigned to each rule.")
