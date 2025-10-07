@@ -21,15 +21,18 @@ def extinction_birds(data_path='datasets/Extinction/AvoIUCNbehavMig.csv'):
     return model, data
 
 def updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase.csv'):
-    attrs = ['Beak.Length_Culmen','Beak.Length_Nares','Beak.Width','Beak.Depth','Tarsus.Length','Wing.Length','Kipps.Distance',
-             'Secondary1','Hand.Wing.Index','Tail.Length','Habitat.Density','Migration','Primary.Lifestyle','Min.Latitude',
-             'Max.Latitude','Centroid.Latitude','Centroid.Longitude','Range.Size','RR','ISL','RLM','LAT','NormMin',
-             'Elevational.Range','NormMax','DB','Nest_Type','Nest_SBS','Clutch_Max','Flightlessness','BodyMass','Order2',
-             'Family','Habitat1','Diet', 'HB']
+    attrs = ["Beak.Length_Culmen","Beak.Length_Nares","Beak.Width","Beak.Depth",
+             "Tarsus.Length","Wing.Length","Kipps.Distance","Secondary1","Hand.Wing.Index",
+             "Tail.Length","Habitat.Density","Migration","Primary.Lifestyle","Min.Latitude",
+             "Max.Latitude","Centroid.Latitude","Centroid.Longitude","Range.Size","IUCN2024",
+             "RR","ISL","RLM","LAT","NormMin","Elevational.Range","NormMax","HB","DB",
+             "Nest_Type","Nest_SBS","Clutch_Max","Flightlessness","BodyMass","Order2",
+             "Family","Habitat1","Diet"]
     
-    nums = ['Beak.Length_Culmen','Beak.Length_Nares','Beak.Width','Beak.Depth','Tarsus.Length','Wing.Length','Kipps.Distance',
-             'Secondary1','Hand.Wing.Index','Tail.Length','Min.Latitude','Max.Latitude','Centroid.Latitude','Centroid.Longitude',
-             'Range.Size','NormMin','Elevational.Range','NormMax','HB','DB','Clutch_Max','BodyMass']
+    nums = ["Beak.Length_Culmen","Beak.Length_Nares","Beak.Width","Beak.Depth",
+             "Tarsus.Length","Wing.Length","Kipps.Distance","Secondary1","Hand.Wing.Index",
+             "Tail.Length","Min.Latitude","Max.Latitude","Centroid.Latitude","Centroid.Longitude",
+             "Range.Size","NormMin","Elevational.Range","NormMax","HB","DB","Clutch_Max","BodyMass"]
     label = 'extinction_risk'
     model = Classifier(attrs=attrs, numeric=nums, label=label)
     data = model.load_data(data_path) # Use the argument here
