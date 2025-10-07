@@ -20,7 +20,7 @@ print(f"Testing set size: {len(test_data)} updatedextinctionbirds")
 baseline_model = Classifier(attrs=model_template.attrs, numeric=model_template.numeric, label=model_template.label)
 
 # Fit the model on the training data
-baseline_model.fit(train_data, ratio=0.5)
+baseline_model.fit(train_data, ratio=0.9)
 
 # Print the rules the model learned
 print("--- Rules Learned by the Baseline Model ---")
