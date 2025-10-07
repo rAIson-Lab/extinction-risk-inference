@@ -36,8 +36,11 @@ def updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase.csv'):
     label = "extinction_risk"
     model = Classifier(attrs=attrs, numeric=nums, label=label)
     data = model.load_data(data_path) # Use the argument here
-    print('\n% extinction birds dataset loaded', np.shape(data))
-    return model, data
+    # Filtrar solo filas con extinction_risk igual a '0' o '1'
+    label_index = attrs.index(label) if label in attrs else -1
+    filtered_data = [row for row in data if str(row[label_index]) in ['0', '1']]
+    print(f"\n% extinction birds dataset loaded (filtrado 0/1): {np.shape(filtered_data)}")
+    return model, filtered_data
 
 def extinction_amphib(data_path='datasets/Extinction/Pottieretal2022_ampthermtoler1.csv'):
     attrs = ["order","family","latitude","longitude","elevation",
