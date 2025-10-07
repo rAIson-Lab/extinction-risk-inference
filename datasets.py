@@ -33,7 +33,7 @@ def updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase.csv'):
              "Tarsus.Length","Wing.Length","Kipps.Distance","Secondary1","Hand.Wing.Index",
              "Tail.Length","Min.Latitude","Max.Latitude","Centroid.Latitude","Centroid.Longitude",
              "Range.Size","Elevational.Range","HB","DB","Clutch_Max","BodyMass"]
-    label = 'extinction_risk'
+    label = "extinction_risk"
     model = Classifier(attrs=attrs, numeric=nums, label=label)
     data = model.load_data(data_path) # Use the argument here
     print('\n% extinction birds dataset loaded', np.shape(data))
