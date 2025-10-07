@@ -52,12 +52,12 @@ expert_model = Classifier(attrs=model_template.attrs, numeric=model_template.num
 
 # Define our expert rules as strings
 # Note: the symbols '==' and '<=' must also be in single quotes for the parser.
-rule1 = "with confidence 0.90 class = 'High_risk' if 'Range.Size' '<=' '5' except if 'Clutch_Max' '=>' '10'"
+rule1 = "with confidence 0.90 class = '1' if 'Range.Size' '<=' '5' except if 'Clutch_Max' '=>' '10'"
 #Note additional rules could be added like this:
 #rule2 = "with confidence 0.70 class = '1' if 'Clutch_Max' '==' '1'"
 
 # Add the manual rules to the model
-expert_model.add_manual_rule(rule1, model_template.attrs, model_template.numeric, ['Low_risk', 'High_risk'], instructions=False)
+expert_model.add_manual_rule(rule1, model_template.attrs, model_template.numeric, ['0', '1'], instructions=False)
 # Note: here is code to add an additional rule:
 #expert_model.add_manual_rule(rule2, model_template.attrs, model_template.numeric, ['0', '1'], instructions=False)
 
