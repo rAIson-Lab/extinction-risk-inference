@@ -12,7 +12,7 @@ def extinction_birds(data_path='datasets/Extinction/AvoIUCNbehavMig.csv'):
             'Unknown','Uncertain','Migratory_status','Migratory_status_2','Migratory_status_3']
     
     nums = ['Mass', 'HWI','Beak.Length.culmen','Beak.Length.nares','Beak.Width','Beak.Depth','Tarsus.Length',
-            'Wing.Length','Kipps.Distance','Secondary1','Tail.Length','RedlistCategory','Threat','LogRangeSize',
+            'Wing.Length','Kipps.Distance','Secondary1','Tail.Length','RedlistCategory','LogRangeSize',
             'LogBodyMass','LogClutchSize','LogNightLights','LogHumanPopulationDensity']
     label = 'Threat'
     model = Classifier(attrs=attrs, numeric=nums, label=label)
