@@ -9,7 +9,7 @@ from datasets import updated_extinction_birds # Our new function
 
 
 # Load the data
-model_template, data = updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase.csv')
+model_template, data = updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase_noNA.csv')
 
 # Split into training and testing sets
 train_data, test_data = split_data(data, ratio=0.9, shuffle=True)
