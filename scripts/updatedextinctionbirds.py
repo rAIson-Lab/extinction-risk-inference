@@ -8,7 +8,11 @@ from utils import split_data # Or your stratified version if you prefer
 from datasets import updated_extinction_birds # Our new function
 
 # Load the data
+
+# Cargar y filtrar los datos para usar solo 0 y 1 en extinction_risk
 model_template, data = updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase.csv')
+label_index = model_template.attrs.index(model_template.label) if model_template.label in model_template.attrs else -1
+data = [row for row in data if str(row[label_index]) in ['0', '1']]
 
 # Split into training and testing sets
 train_data, test_data = split_data(data, ratio=0.9, shuffle=True)
