@@ -7,7 +7,6 @@ from foldrm import Classifier
 from utils import split_data # Or your stratified version if you prefer
 from datasets import updated_extinction_birds # Our new function
 
-
 # Load the data
 model_template, data = updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase.csv')
 
@@ -53,12 +52,12 @@ expert_model = Classifier(attrs=model_template.attrs, numeric=model_template.num
 
 # Define our expert rules as strings
 # Note: the symbols '==' and '<=' must also be in single quotes for the parser.
-rule1 = "with confidence 0.90 class = 'High risk' if 'Range.Size' '<=' '5' except if 'Clutch_Max' '=>' '10'"
+rule1 = "with confidence 0.90 class = 'High_risk' if 'Range.Size' '<=' '5' except if 'Clutch_Max' '=>' '10'"
 #Note additional rules could be added like this:
 #rule2 = "with confidence 0.70 class = '1' if 'Clutch_Max' '==' '1'"
 
 # Add the manual rules to the model
-expert_model.add_manual_rule(rule1, model_template.attrs, model_template.numeric, ['Low risk', 'High risk'], instructions=False)
+expert_model.add_manual_rule(rule1, model_template.attrs, model_template.numeric, ['Low_risk', 'High_risk'], instructions=False)
 # Note: here is code to add an additional rule:
 #expert_model.add_manual_rule(rule2, model_template.attrs, model_template.numeric, ['0', '1'], instructions=False)
 
@@ -102,12 +101,12 @@ print(f"Accuracy: {expert_accuracy * 100:.2f}%")
 learned_confidence_model = Classifier(attrs=model_template.attrs, numeric=model_template.numeric, label=model_template.label)
 
 # Define our expert rules as strings, but WITHOUT the 'with confidence' part.
-rule1_no_confidence = "class = 'High risk' if 'Range.Size' '<=' '5'"
-rule2_no_confidence = "class = 'High risk' if 'Clutch_Max' '<=' '1'"
+rule1_no_confidence = "class = 'High_risk' if 'Range.Size' '<=' '5'"
+rule2_no_confidence = "class = 'High_risk' if 'Clutch_Max' '<=' '1'"
 
 # Add the manual rules to the model
-learned_confidence_model.add_manual_rule(rule1_no_confidence, model_template.attrs, model_template.numeric, ['Low risk', 'High risk'], instructions=False)
-learned_confidence_model.add_manual_rule(rule2_no_confidence, model_template.attrs, model_template.numeric, ['Low risk', 'High risk'], instructions=False)
+learned_confidence_model.add_manual_rule(rule1_no_confidence, model_template.attrs, model_template.numeric, ['Low_risk', 'High_risk'], instructions=False)
+learned_confidence_model.add_manual_rule(rule2_no_confidence, model_template.attrs, model_template.numeric, ['Low_risk', 'High_risk'], instructions=False)
 
 print("--- Manual Rules Added (Before Training) ---")
 print("Notice the default confidence value of 0.5 assigned to each rule.")
