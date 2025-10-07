@@ -27,7 +27,7 @@ def updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase.csv'):
              "Max.Latitude","Centroid.Latitude","Centroid.Longitude","Range.Size","IUCN2024",
              "RR","ISL","RLM","LAT","Elevational.Range","HB","DB",
              "Nest_Type","Nest_SBS","Clutch_Max","Flightlessness","BodyMass","Order2",
-             "Family","Habitat1","Diet"]
+             "Family","Habitat1"]
     
     nums = ["Beak.Length_Culmen","Beak.Length_Nares","Beak.Width","Beak.Depth",
              "Tarsus.Length","Wing.Length","Kipps.Distance","Secondary1","Hand.Wing.Index",
