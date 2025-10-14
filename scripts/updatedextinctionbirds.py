@@ -11,8 +11,8 @@ from datasets import updated_extinction_birds # Our new function
 
 # Cargar y filtrar los datos para usar solo 0 y 1 en extinction_risk
 model_template, data = updated_extinction_birds()
-#label_index = model_template.attrs.index(model_template.label) if model_template.label in model_template.attrs else -1
-#data = [row for row in data if str(row[label_index]) in ['Lower_risk', 'Higher_risk']]
+label_index = model_template.attrs.index(model_template.label) if model_template.label in model_template.attrs else -1
+data = [row for row in data if str(row[label_index]) in ['Lower_risk', 'Higher_risk']]
 
 # Split into training and testing sets
 train_data, test_data = split_data(data, ratio=0.9, shuffle=True)
