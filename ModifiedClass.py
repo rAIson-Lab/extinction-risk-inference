@@ -18,15 +18,13 @@ def extinction_birds2(data_path='datasets/Extinction/AvoIUCNbehavMig.csv'):
             'Extinct_full','Extinct_partial','Marine_full','Marine_partial','Migr_dir_full','Migr_dir_partial',
             'Migr_dir_local','Migr_disp_full','Migr_disp_partial','Migr_disp_local','Migr_altitudinal',
             'Irruptive','Nomad_full','Nomad_partial','Nomad_local','Resid_full','Resid_partial',
-            'Unknown','Uncertain','Migratory_status','Migratory_status_2','Migratory_status_3']
-    
+            'Unknown','Uncertain','Migratory_status','Migratory_status_2','Migratory_status_3', 'LogBodyMass', 'RedlistCategory']
     nums = ['Mass', 'HWI','Beak.Length.culmen','Beak.Length.nares','Beak.Width','Beak.Depth','Tarsus.Length',
             'Wing.Length','Kipps.Distance','Secondary1','Tail.Length','RedlistCategory','LogRangeSize',
             'LogBodyMass','LogClutchSize','LogNightLights','LogHumanPopulationDensity']
     label = 'Threat'
     model = MyClassifier(attrs=attrs, numeric=nums, label=label)
     data = model.load_data(data_path) # Use the argument here
-    #print('\n% extinction birds dataset loaded', np.shape(data))
     return model, data
 
 def use_dataframe(file, attrs, label, numeric, amount):
@@ -38,14 +36,3 @@ def use_dataframe(file, attrs, label, numeric, amount):
     result = pd.concat([df_x,df_y], axis=1)
     attrs.append(label)
     return result,attrs
-
-if __name__=="__main__":
-    from datasets import extinction_birds # Our new function
-    model_template, data = extinction_birds()
-    model_template2, data2 = extinction_birds2()
-    #l = data2.values.tolist()
-
-    #print(data[0])
-    #print(l[0])
-    
-    #print(l[0]==data[0])
