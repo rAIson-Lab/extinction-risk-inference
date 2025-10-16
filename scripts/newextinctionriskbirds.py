@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 import numpy as np
 from foldrm import Classifier
 from utils import split_data # Or your stratified version if you prefer
-from datasets import updated_extinction_birds # Our new function
+from datasets import new_extinction_birds # Our new function
 
 # Load the data
 
