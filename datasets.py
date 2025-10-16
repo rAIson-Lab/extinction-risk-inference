@@ -43,7 +43,7 @@ def new_extinction_birds(data_path='datasets/Extinction/AvoBirdbMigBirdbehav_noN
     attrs = ["Species1", "Beak.Length_Culmen", "Beak.Length_Nares", "Beak.Width", "Beak.Depth", "Tarsus.Length", "Wing.Length", 
              "Kipps.Distance", "Secondary1", "Hand.Wing.Index", "Tail.Length", "Habitat.Density", "Migration.x", 
              "Primary.Lifestyle", "Min.Latitude", "Max.Latitude", "RR", 
-             "ISL", "RLM", "LAT", "Elevational.Range", "HB", "DB", "Nest_Type", "Nest_SBS", "Flightlessness", 
+             "ISL", "RLM", "LAT", "Elevational.Range", "HB", "DB", "Nest_Type", "Nest_SBS",  
              "Habitat1", "Extinct_full", "Extinct_partial", "Marine_full", "Marine_partial", "Migr_dir_full", 
              "Migr_dir_partial", "Migr_dir_local", "Migr_disp_full", "Migr_disp_partial", "Migr_disp_local", 
              "Migr_altitudinal", "Irruptive", "Nomad_full", "Nomad_partial", "Nomad_local", "Resid_full", "Resid_partial", 
