@@ -20,9 +20,11 @@ def extinction_birds2(data_path='datasets/Extinction/AvoIUCNbehavMig.csv'):
             'Irruptive','Nomad_full','Nomad_partial','Nomad_local','Resid_full','Resid_partial',
             'Unknown','Uncertain','Migratory_status','Migratory_status_2','Migratory_status_3', 'LogBodyMass', 'RedlistCategory']
     nums = ['Mass', 'HWI','Beak.Length.culmen','Beak.Length.nares','Beak.Width','Beak.Depth','Tarsus.Length',
-            'Wing.Length','Kipps.Distance','Secondary1','Tail.Length','RedlistCategory','LogRangeSize',
-            'LogBodyMass','LogClutchSize','LogNightLights','LogHumanPopulationDensity']
+            'Wing.Length','Kipps.Distance','Secondary1','Tail.Length','LogRangeSize',
+            'LogClutchSize','LogNightLights','LogHumanPopulationDensity']
+    
     label = 'Threat'
+    #model = MyClassifier(attrs=attrs, numeric=nums, label=label)
     model = MyClassifier(attrs=attrs, numeric=nums, label=label)
     data = model.load_data(data_path) # Use the argument here
     return model, data
