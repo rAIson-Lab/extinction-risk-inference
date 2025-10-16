@@ -40,16 +40,21 @@ def updated_extinction_birds(data_path='datasets/Extinction/Avo_Birdbase.csv'):
     return model, data
 
 def new_extinction_birds(data_path='datasets/Extinction/AvoBirdbMigBirdbehav_noNA.csv'):
-    attrs = ["Beak.Length_Culmen", "Beak.Length_Nares", "Beak.Width", "Beak.Depth", "Tarsus.Length", 
-             "Wing.Length", "Kipps.Distance", "Secondary1", "Hand.Wing.Index", "Tail.Length", "Habitat.Density", 
-             "Migration", "Primary.Lifestyle", "Min.Latitude", "Max.Latitude", "Range.Size", "RR", "ISL", "RLM", "LAT", 
-             "Elevational.Range", "HB", "DB", "Nest_Type", "Nest_SBS", 
-             "Clutch_Max", "Flightlessness", "BodyMass", "Order2", "Family", "Habitat1", "Diet"]
+    attrs = ["Species1", "Beak.Length_Culmen", "Beak.Length_Nares", "Beak.Width", "Beak.Depth", "Tarsus.Length", "Wing.Length", 
+             "Kipps.Distance", "Secondary1", "Hand.Wing.Index", "Tail.Length", "Habitat.Density", "Migration.x", 
+             "Primary.Lifestyle", "Min.Latitude", "Max.Latitude", "RR", 
+             "ISL", "RLM", "LAT", "Elevational.Range", "HB", "DB", "Nest_Type", "Nest_SBS", "Flightlessness", 
+             "Habitat1", "Extinct_full", "Extinct_partial", "Marine_full", "Marine_partial", "Migr_dir_full", 
+             "Migr_dir_partial", "Migr_dir_local", "Migr_disp_full", "Migr_disp_partial", "Migr_disp_local", 
+             "Migr_altitudinal", "Irruptive", "Nomad_full", "Nomad_partial", "Nomad_local", "Resid_full", "Resid_partial", 
+             "Migratory_status", "Migratory_status_2", "Migratory_status_3", "Family", "Foraging", "Migration.y",
+             "MatingSystem", "NestPlacement", "Territoriality", "Habitat", "IslandDwelling", "LogNightLights", 
+             "LogHumanPopulationDensity", "Range_size", "Body_mass", "Order1", "Clutch_size", "Diet"]
     
     nums = ["Beak.Length_Culmen","Beak.Length_Nares","Beak.Width","Beak.Depth",
              "Tarsus.Length","Wing.Length","Kipps.Distance","Secondary1","Hand.Wing.Index",
-             "Tail.Length", "Habitat.Density", "Min.Latitude","Max.Latitude",
-             "Range.Size","Elevational.Range","HB","DB","Clutch_Max","BodyMass"]
+             "Tail.Length", "Habitat.Density", "Min.Latitude","Max.Latitude", "Elevational.Range", 
+             "LogNightLights","LogHumanPopulationDensity", "Range_size", "Body_mass", "Clutch_size"]
     label = "extinction_risk"
     model = Classifier(attrs=attrs, numeric=nums, label=label)
     data = model.load_data(data_path) # Use the argument here
