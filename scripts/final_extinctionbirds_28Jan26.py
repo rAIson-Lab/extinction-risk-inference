@@ -9,8 +9,7 @@ from foldrm import Classifier
 from utils import split_data_stratified  
 from datasets import final_extinctionrisk 
 
-# ---------------- seed / reproducibility ----------------
-# Accept a --seed CLI argument (or read SEED from env) so runs can be reproducible.
+# ---------------- seed ----------------
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument('--seed', type=int, default=None, help='Random seed for reproducibility')
 args, _ = parser.parse_known_args()
