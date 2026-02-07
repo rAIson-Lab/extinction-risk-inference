@@ -6,8 +6,8 @@ import argparse
 import random
 import numpy as np
 from foldrm import Classifier
-from utils import split_data_stratified  # Or your stratified version if you prefer
-from datasets import final_extinctionrisk_noth # Our new function
+from utils import split_data_stratified  
+from datasets import final_extinctionrisk_noth 
 
 # ---------------- seed / reproducibility ----------------
 # Accept a --seed CLI argument (or read SEED from env) so runs can be reproducible.
