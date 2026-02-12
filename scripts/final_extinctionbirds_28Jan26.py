@@ -358,7 +358,7 @@ advanced_pruning_model = Classifier(attrs=model_template.attrs.copy(), numeric=m
 
 # Now, train using confidence_fit with a high 10% improvement threshold
 print("--- Training with confidence_fit(improvement_threshold=0.10) ---")
-advanced_pruning_model.confidence_fit(train_data, improvement_threshold=0.1)
+advanced_pruning_model.confidence_fit(train_data, improvement_threshold=0.2)
 
 print("\n--- Rules Learned via Confidence-Driven Learning ---")
 print("Note how the model is simpler and did not learn any exceptions to rules or `abnormalities', as they did not meet the high confidence improvement threshold.")
