@@ -299,7 +299,7 @@ from algo import prune_rules
 
 # Apply the pruning function
 # This will create a new list containing only the rules that meet the confidence threshold.
-pruned_rules = prune_rules(expert_model.rules, confidence=0.90)
+pruned_rules = prune_rules(expert_model.rules, confidence=0.80)
 
 # We can create a new model instance to hold these pruned rules
 simple_pruned_model = Classifier(attrs=model_template.attrs, numeric=model_template.numeric, label=model_template.label)
@@ -425,7 +425,7 @@ print("Applying confidence_fit with high improvement threshold to add only high-
 
 # Use confidence_fit to learn additional rules with high threshold
 # The expert rules with their predefined confidence remain, but only high-confidence new rules are added
-expert_advanced_model.confidence_fit(train_data, improvement_threshold=0.1)
+expert_advanced_model.confidence_fit(train_data, improvement_threshold=0.2)
 
 print("\n--- Expert Rules After Confidence-Driven Learning ---")
 print("Expert rules maintain their confidence, and only high-confidence additional rules were added.")
