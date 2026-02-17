@@ -90,8 +90,8 @@ predicted_labels = [p[0] for p in predictions_tuples]
 accuracy = sum(1 for i in range(len(Y_test)) if predicted_labels[i] == Y_test[i]) / len(Y_test)
 
 # GUARDAR BASELINE
-os.makedirs('confold_results_noth10p', exist_ok=True)
-with open('confold_results_noth10p/01_baseline.txt', 'w') as f:
+os.makedirs('confold_results_noth10pruning', exist_ok=True)
+with open('confold_results_noth10pruning/01_baseline.txt', 'w') as f:
     baseline_model.asp()
     f.write("BASELINE MODEL\n" + "="*70 + "\n\n")
     f.write("RULES:\n" + "-"*70 + "\n")
@@ -168,7 +168,7 @@ print("--- Expert Model Evaluation ---")
 print(f"Accuracy: {expert_accuracy * 100:.2f}%")
 
 # EXPERT WITH CONFIDENCE
-with open('confold_results_noth10p/02_expert_with_confidence.txt', 'w') as f:
+with open('confold_results_noth10pruning/02_expert_with_confidence.txt', 'w') as f:
     expert_model.asp()
     f.write("EXPERT MODEL (With Confidence)\n" + "="*70 + "\n\n")
     f.write("RULES:\n" + "-"*70 + "\n")
@@ -250,7 +250,7 @@ learned_conf_accuracy = sum(1 for i in range(len(Y_test)) if learned_conf_labels
 print(f"Accuracy: {learned_conf_accuracy * 100:.2f}%")
 
 # LEARNED CONFIDENCE
-with open('confold_results_noth10p/03_expert_learned_confidence.txt', 'w') as f:
+with open('confold_results_noth10pruning/03_expert_learned_confidence.txt', 'w') as f:
     learned_confidence_model.asp()
     f.write("EXPERT MODEL (Learned Confidence)\n" + "="*70 + "\n\n")
     f.write("RULES:\n" + "-"*70 + "\n")
@@ -317,7 +317,7 @@ all_predictions['simple_pruning'] = predicted_labels_simple_pruned
 simple_pruned_accuracy = sum(1 for i in range(len(Y_test)) if predicted_labels_simple_pruned[i] == Y_test[i]) / len(Y_test)
 
 # GUARDAR SIMPLE PRUNED MODEL
-with open('confold_results_noth10p/04_simple_pruned_model_expert_confidence.txt', 'w') as f:
+with open('confold_results_noth10pruning/04_simple_pruned_model_expert_confidence.txt', 'w') as f:
     simple_pruned_model.asp()
     f.write("SIMPLE PRUNING TO EXPERT WITH CONFIDENCE (Confidence >= 0.90)\n" + "="*70 + "\n\n")
     f.write("RULES:\n" + "-"*70 + "\n")
@@ -373,7 +373,7 @@ all_predictions['advanced_pruning'] = predicted_labels_advanced
 advanced_accuracy = sum(1 for i in range(len(Y_test)) if predicted_labels_advanced[i] == Y_test[i]) / len(Y_test)
 
 # PRUNED MODEL
-with open('confold_results_noth10p/05_advanced_pruning_model.txt', 'w') as f:
+with open('confold_results_noth10pruning/05_advanced_pruning_model.txt', 'w') as f:
     advanced_pruning_model.asp()
     f.write("ADVANCED PRUNING\n" + "="*70 + "\n\n")
     f.write("RULES:\n" + "-"*70 + "\n")
@@ -440,7 +440,7 @@ all_predictions['expert_advanced_pruning'] = predicted_labels_expert_advanced
 expert_advanced_accuracy = sum(1 for i in range(len(Y_test)) if predicted_labels_expert_advanced[i] == Y_test[i]) / len(Y_test)
 
 # GUARDAR EXPERT ADVANCED MODEL
-with open('confold_results_noth10p/06_expert_advanced_pruning_model.txt', 'w') as f:
+with open('confold_results_noth10pruning/06_expert_advanced_pruning_model.txt', 'w') as f:
     expert_advanced_model.asp()
     f.write("EXPERT MODEL WITH ADVANCED PRUNING\n" + "="*70 + "\n\n")
     f.write("Starting with expert rules (confidence 0.99 and 0.95)\n")
