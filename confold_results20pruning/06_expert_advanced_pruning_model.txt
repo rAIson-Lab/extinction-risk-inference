@@ -2,7 +2,7 @@ EXPERT MODEL WITH ADVANCED PRUNING
 ======================================================================
 
 Starting with expert rules (confidence 0.99 and 0.95)
-Applied confidence_fit(improvement_threshold=0.1) for additional rules
+Applied confidence_fit(improvement_threshold=0.2) for additional rules
 
 RULES:
 ----------------------------------------------------------------------
@@ -25,12 +25,11 @@ extinction_risk(X,'lower_risk') :- rule16(X), not rule1(X), not rule2(X), not ru
 extinction_risk(X,'higher_risk') :- rule17(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X).
 extinction_risk(X,'lower_risk') :- rule18(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X).
 extinction_risk(X,'higher_risk') :- rule19(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X).
-extinction_risk(X,'higher_risk') :- rule20(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X).
-extinction_risk(X,'lower_risk') :- rule21(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X), not rule20(X).
-extinction_risk(X,'higher_risk') :- rule22(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X), not rule20(X), not rule21(X).
+extinction_risk(X,'lower_risk') :- rule20(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X).
+extinction_risk(X,'higher_risk') :- rule21(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X), not rule20(X).
+extinction_risk(X,'lower_risk') :- rule22(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X), not rule20(X), not rule21(X).
 extinction_risk(X,'lower_risk') :- rule23(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X), not rule20(X), not rule21(X), not rule22(X).
-extinction_risk(X,'higher_risk') :- rule24(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X), not rule20(X), not rule21(X), not rule22(X), not rule23(X).
-extinction_risk(X,'higher_risk') :- rule25(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X), not rule20(X), not rule21(X), not rule22(X), not rule23(X), not rule24(X).
+extinction_risk(X,'lower_risk') :- rule24(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X), not rule20(X), not rule21(X), not rule22(X), not rule23(X).
 rule1(X) :- agriculture(X,N2), N2>1, hunting(X,N3), N3>1, invasive_species(X,N4), N4>1, range_size(X,N25), N25<=75321. [confidence: 0.99]
 rule2(X) :- agriculture(X,N2), N2>1, hunting(X,N3), N3>1, invasive_species(X,N4), N4>1. [confidence: 0.95]
 rule3(X) :- hunting(X,N3), N3>1, invasive_species(X,N4), N4>1, range_size(X,N25), N25<=75321. [confidence: 0.95]
@@ -48,24 +47,23 @@ rule14(X) :- generation_length(X,N24), N24<=6.0709, range_size(X,N25), N25>15887
 rule15(X) :- not realm(X,'w'), generation_length(X,N24), N24>2.0705, clutch_size(X,N27), N27<=2.33333. [confidence: 0.72826]
 rule16(X) :- wing_length(X,N9), N9<=68.8. [confidence: 0.78846]
 rule17(X) :- tail_length(X,N11), N11<=58.8. [confidence: 0.75]
-rule18(X) :- tarsus_length(X,N8), N8<=36.1, not ab1(X). [confidence: 0.78846]
-rule19(X) :- beak_depth(X,N7), N7>23.4. [confidence: 0.75]
-rule20(X) :- maximum_latitude(X,N13), N13<=-4.2. [confidence: 0.7381]
-rule21(X) :- beak_depth(X,N7), N7>16.3. [confidence: 0.7]
-rule22(X) :- beak_length_culmen(X,N6), N6>45.1. [confidence: 0.65385]
-rule23(X) :- elevational_range(X,N17), N17>800.0. [confidence: 0.65789]
-rule24(X) :- not order(X,'falconiformes'). [confidence: 0.59091]
-rule25(X) :- order(X,'falconiformes'). [confidence: 0.55]
-ab1(X) :- range_size(X,N25), N25<=548390.11, clutch_size(X,N27), N27>3.55426.
+rule18(X) :- tarsus_length(X,N8), N8<=36.1. [confidence: 0.62821]
+rule19(X) :- elevational_range(X,N17), N17<=1500.0. [confidence: 0.73214]
+rule20(X) :- beak_length_culmen(X,N6), N6<=37.1. [confidence: 0.65385]
+rule21(X) :- range_size(X,N25), N25<=1269425.48. [confidence: 0.65385]
+rule22(X) :- order(X,'accipitriformes'). [confidence: 0.59091]
+rule23(X) :- order(X,'charadriiformes'). [confidence: 0.55]
+rule24(X) :- order(X,'galliformes'). [confidence: 0.55]
 
 ======================================================================
 PERFORMANCE METRICS
 ======================================================================
 
 Confusion Matrix:
-                 PRED:Higher_risk PRED:Lower_risk
-TRUE:Higher_risk              239             106
- TRUE:Lower_risk               66            1401
+                 PRED:Higher_risk PRED:Lower_risk PRED:None
+TRUE:Higher_risk              239             105         1
+ TRUE:Lower_risk               66            1401         0
+       TRUE:None                0               0         0
 
 Per-class Metrics:
 ----------------------------------------------------------------------
@@ -80,6 +78,12 @@ Lower_risk:
   Recall:    0.955
   F1-Score:  0.942
   Support:   1467
+
+None:
+  Precision: 0.000
+  Recall:    0.000
+  F1-Score:  0.000
+  Support:   0
 
 ----------------------------------------------------------------------
 Overall Accuracy: 90.51%
