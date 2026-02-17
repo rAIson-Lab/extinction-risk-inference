@@ -1,0 +1,77 @@
+ADVANCED PRUNING
+======================================================================
+
+RULES:
+----------------------------------------------------------------------
+extinction_risk(X,'lower_risk') :- rule1(X).
+extinction_risk(X,'higher_risk') :- rule2(X), not rule1(X).
+extinction_risk(X,'lower_risk') :- rule3(X), not rule1(X), not rule2(X).
+extinction_risk(X,'higher_risk') :- rule4(X), not rule1(X), not rule2(X), not rule3(X).
+extinction_risk(X,'lower_risk') :- rule5(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X).
+extinction_risk(X,'higher_risk') :- rule6(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X).
+extinction_risk(X,'higher_risk') :- rule7(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X).
+extinction_risk(X,'higher_risk') :- rule8(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X).
+extinction_risk(X,'lower_risk') :- rule9(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X).
+extinction_risk(X,'higher_risk') :- rule10(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X).
+extinction_risk(X,'lower_risk') :- rule11(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X).
+extinction_risk(X,'higher_risk') :- rule12(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X).
+extinction_risk(X,'higher_risk') :- rule13(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X).
+extinction_risk(X,'lower_risk') :- rule14(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X).
+extinction_risk(X,'higher_risk') :- rule15(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X).
+extinction_risk(X,'lower_risk') :- rule16(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X).
+extinction_risk(X,'higher_risk') :- rule17(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X).
+extinction_risk(X,'lower_risk') :- rule18(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X).
+extinction_risk(X,'higher_risk') :- rule19(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X).
+extinction_risk(X,'lower_risk') :- rule20(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X), not rule7(X), not rule8(X), not rule9(X), not rule10(X), not rule11(X), not rule12(X), not rule13(X), not rule14(X), not rule15(X), not rule16(X), not rule17(X), not rule18(X), not rule19(X).
+rule1(X) :- range_size(X,N21), N21>16469.54. [confidence: 0.87845]
+rule2(X) :- range_size(X,N21), N21<=3161.83. [confidence: 0.77019]
+rule3(X) :- wing_length(X,N5), N5<=99.5, elevational_range(X,N13), N13>1000.0. [confidence: 0.76415]
+rule4(X) :- island_restricted_breeding(X,'0'). [confidence: 0.70333]
+rule5(X) :- hand_wing_index(X,N6), N6<=24.4, adult_survival_annual(X,N19), N19<=0.82484, not ab2(X). [confidence: 0.748]
+rule6(X) :- hand_wing_index(X,N6), N6<=24.7. [confidence: 0.82692]
+rule7(X) :- not order(X,'accipitriformes'), beak_length_culmen(X,N2), N2>20.0, wing_length(X,N5), N5>75.2, tail_length(X,N7), N7>56.7, range_size(X,N21), N21<=5001.87. [confidence: 0.75]
+rule8(X) :- order(X,'accipitriformes'). [confidence: 0.73529]
+rule9(X) :- wing_length(X,N5), N5<=75.2. [confidence: 0.65385]
+rule10(X) :- tail_length(X,N7), N7<=56.7. [confidence: 0.67857]
+rule11(X) :- range_size(X,N21), N21<=6316.85, not ab3(X), not ab4(X). [confidence: 0.79545]
+rule12(X) :- range_size(X,N21), N21<=7248.97. [confidence: 0.71875]
+rule13(X) :- wing_length(X,N5), N5>97.4, body_mass(X,N22), N22<=56.3. [confidence: 0.7]
+rule14(X) :- wing_length(X,N5), N5<=148.5, not ab5(X). [confidence: 0.71875]
+rule15(X) :- minimum_elevation(X,N17), N17>0.0. [confidence: 0.7]
+rule16(X) :- tarsus_length(X,N4), N4>16.8, hand_wing_index(X,N6), N6>36.4. [confidence: 0.65385]
+rule17(X) :- hand_wing_index(X,N6), N6>34.5. [confidence: 0.7]
+rule18(X) :- minimum_latitude(X,N8), N8>-9.95. [confidence: 0.65385]
+rule19(X) :- not family(X,'corvidae'). [confidence: 0.625]
+rule20(X) :- order(X,'passeriformes'). [confidence: 0.55]
+ab1(X) :- elevational_range(X,N13), N13<=570.0.
+ab2(X) :- diet(X,'invertebrate'), adult_survival_annual(X,N19), N19<=0.66541, not ab1(X).
+ab3(X) :- maximum_latitude(X,N9), N9>13.68.
+ab4(X) :- beak_length_culmen(X,N2), N2>26.6, adult_survival_annual(X,N19), N19<=0.69957.
+ab5(X) :- beak_depth(X,N3), N3>9.2.
+
+======================================================================
+PERFORMANCE METRICS
+======================================================================
+
+Confusion Matrix:
+                 PRED:Higher_risk PRED:Lower_risk
+TRUE:Higher_risk              133             212
+ TRUE:Lower_risk               65            1402
+
+Per-class Metrics:
+----------------------------------------------------------------------
+Higher_risk:
+  Precision: 0.672
+  Recall:    0.386
+  F1-Score:  0.490
+  Support:   345
+
+Lower_risk:
+  Precision: 0.869
+  Recall:    0.956
+  F1-Score:  0.910
+  Support:   1467
+
+----------------------------------------------------------------------
+Overall Accuracy: 84.71%
+======================================================================

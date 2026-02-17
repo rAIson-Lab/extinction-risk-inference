@@ -356,7 +356,7 @@ with open('confold_results_noth2/04_simple_pruned_model_expert_confidence.txt', 
 # Instantiate a new model for this experiment
 advanced_pruning_model = Classifier(attrs=model_template.attrs.copy(), numeric=model_template.numeric, label=model_template.label)
 
-# Now, train using confidence_fit with a high 10% improvement threshold
+# Now, train using confidence_fit with a high 5% improvement threshold
 print("--- Training with confidence_fit(improvement_threshold=0.05) ---")
 advanced_pruning_model.confidence_fit(train_data, improvement_threshold=0.05)
 
