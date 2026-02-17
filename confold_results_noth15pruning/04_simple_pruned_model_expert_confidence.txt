@@ -1,0 +1,84 @@
+SIMPLE PRUNING TO EXPERT WITH CONFIDENCE (Confidence >= 0.90)
+======================================================================
+
+RULES:
+----------------------------------------------------------------------
+extinction_risk(X,'higher_risk') :- rule1(X).
+extinction_risk(X,'higher_risk') :- rule2(X), not rule1(X).
+extinction_risk(X,'higher_risk') :- rule3(X), not rule1(X), not rule2(X).
+extinction_risk(X,'higher_risk') :- rule4(X), not rule1(X), not rule2(X), not rule3(X).
+extinction_risk(X,'higher_risk') :- rule5(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X).
+extinction_risk(X,'lower_risk') :- rule6(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X).
+extinction_risk(X,'higher_risk') :- rule7(X), not rule1(X), not rule2(X), not rule3(X), not rule4(X), not rule5(X), not rule6(X).
+rule1(X) :- elevational_range(X,N13), N13<=800, generation_length(X,N20), N20>4.068, range_size(X,N21), N21<=75321, body_mass(X,N22), N22>130. [confidence: 0.99]
+rule2(X) :- elevational_range(X,N13), N13<=800, range_size(X,N21), N21<=75321, body_mass(X,N22), N22>130. [confidence: 0.95]
+rule3(X) :- elevational_range(X,N13), N13<=800, generation_length(X,N20), N20>4.068, range_size(X,N21), N21<=75321. [confidence: 0.95]
+rule4(X) :- generation_length(X,N20), N20>4.068, range_size(X,N21), N21<=75321, body_mass(X,N22), N22>130. [confidence: 0.95]
+rule5(X) :- elevational_range(X,N13), N13<=800, generation_length(X,N20), N20>4.068, body_mass(X,N22), N22>130. [confidence: 0.95]
+rule6(X) :- range_size(X,N21), N21>10987.03, not ab15(X), not ab16(X), not ab19(X), not ab20(X), not ab21(X), not ab23(X), not ab24(X), not ab25(X), not ab28(X), not ab29(X), not ab31(X). [confidence: 0.91251]
+rule7(X) :- not order(X,'accipitriformes'). [confidence: 0.94767]
+ab1(X) :- tarsus_length(X,N4), N4>294.5.
+ab2(X) :- tarsus_length(X,N4), N4>245.0, not ab1(X).
+ab3(X) :- tarsus_length(X,N4), N4>128.5, range_size(X,N21), N21<=6537549.66, not ab2(X).
+ab4(X) :- tail_length(X,N7), N7<=210.5, not ab3(X).
+ab5(X) :- family(X,'rheidae').
+ab6(X) :- beak_depth(X,N3), N3<=23.4, not ab5(X).
+ab7(X) :- tarsus_length(X,N4), N4>260.0, not ab6(X).
+ab8(X) :- body_mass(X,N22), N22>3125.2, clutch_size(X,N23), N23>3.0, not ab7(X).
+ab9(X) :- hand_wing_index(X,N6), N6<=34.0.
+ab10(X) :- tarsus_length(X,N4), N4>89.9, not ab9(X).
+ab11(X) :- beak_length_culmen(X,N2), N2<=78.8, minimum_latitude(X,N8), N8<=-34.84, not ab10(X).
+ab12(X) :- order(X,'galliformes').
+ab13(X) :- habitat_breadth(X,N14), N14>6.0, not ab12(X).
+ab14(X) :- adult_survival_annual(X,N19), N19>0.86869, generation_length(X,N20), N20<=7.9815.
+ab15(X) :- generation_length(X,N20), N20>6.80519, body_mass(X,N22), N22>1942.8, not ab4(X), not ab8(X), not ab11(X), not ab13(X), not ab14(X).
+ab16(X) :- order(X,'procellariiformes'), beak_depth(X,N3), N3>9.0, range_size(X,N21), N21>1266299.03.
+ab17(X) :- family(X,'laridae').
+ab18(X) :- order(X,'gruiformes').
+ab19(X) :- hand_wing_index(X,N6), N6>31.1, minimum_latitude(X,N8), N8>-6.87, elevational_range(X,N13), N13<=1590.0, adult_survival_annual(X,N19), N19>0.86899, range_size(X,N21), N21>1266299.03, not ab17(X), not ab18(X).
+ab20(X) :- beak_depth(X,N3), N3>7.0, hand_wing_index(X,N6), N6>31.1, minimum_latitude(X,N8), N8>-6.87, maximum_elevation(X,N18), N18<=800.0, range_size(X,N21), N21>1266299.03.
+ab21(X) :- realm(X,'ln'), beak_depth(X,N3), N3>2.2, tarsus_length(X,N4), N4<=17.9, hand_wing_index(X,N6), N6>31.1, tail_length(X,N7), N7<=43.8, range_size(X,N21), N21>1266299.03.
+ab22(X) :- range_size(X,N21), N21>7813688.34.
+ab23(X) :- family(X,'scolopacidae'), wing_length(X,N5), N5>134.6, minimum_latitude(X,N8), N8>39.66, habitat_breadth(X,N14), N14<=5.0, range_size(X,N21), N21>1266299.03, not ab22(X).
+ab24(X) :- not island_restricted_breeding(X,'0'), realm(X,'z'), wing_length(X,N5), N5>96.3, range_size(X,N21), N21>1266299.03.
+ab25(X) :- order(X,'otidiformes'), minimum_latitude(X,N8), N8>-9.42, range_size(X,N21), N21>1266299.03, body_mass(X,N22), N22>51.5.
+ab26(X) :- maximum_latitude(X,N9), N9>66.67.
+ab27(X) :- family(X,'alaudidae').
+ab28(X) :- tail_length(X,N7), N7>51.2, tail_length(X,N7), N7<=53.7, minimum_latitude(X,N8), N8>-9.42, range_size(X,N21), N21>1266299.03, body_mass(X,N22), N22>51.5, not ab26(X), not ab27(X).
+ab29(X) :- minimum_latitude(X,N8), N8>39.66, minimum_latitude(X,N8), N8<=39.76, range_size(X,N21), N21>1266299.03.
+ab30(X) :- beak_length_culmen(X,N2), N2>48.1.
+ab31(X) :- family(X,'rostratulidae'), wing_length(X,N5), N5>96.3, range_size(X,N21), N21>1266299.03, not ab30(X).
+
+======================================================================
+PERFORMANCE METRICS
+======================================================================
+
+Confusion Matrix:
+                 PRED:Higher_risk PRED:Lower_risk PRED:None
+TRUE:Higher_risk              202             136         7
+ TRUE:Lower_risk              179            1287         1
+       TRUE:None                0               0         0
+
+Per-class Metrics:
+----------------------------------------------------------------------
+Higher_risk:
+  Precision: 0.530
+  Recall:    0.586
+  F1-Score:  0.556
+  Support:   345
+
+Lower_risk:
+  Precision: 0.904
+  Recall:    0.877
+  F1-Score:  0.891
+  Support:   1467
+
+None:
+  Precision: 0.000
+  Recall:    0.000
+  F1-Score:  0.000
+  Support:   0
+
+----------------------------------------------------------------------
+Overall Accuracy: 82.17%
+======================================================================
