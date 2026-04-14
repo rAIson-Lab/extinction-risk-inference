@@ -1,3 +1,6 @@
 [submodule "CONFOLD"]
 	path = CONFOLD
 	url = git@github.com:lachlanmcg123/CONFOLD.git
+[submodule "IUCNN-Modified"]
+	path = IUCNN-Modified
+	url = git@github.com:rAIson-Lab/IUCNN-Modified.git
